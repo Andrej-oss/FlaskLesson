@@ -1,0 +1,10 @@
+{% extends 'home.html' %}
+{% block content %}
+{% if isTrue %}
+<div>Hello from block content</div>
+{% endif %}
+{% for user in users %}
+<div>{{user}}<a href="{{ url_for('user.index', index=users.index(user) }}">Delete</a></div>
+{% endfor %}
+<a href="{{ url_for('user.index', index=users.index(user)) }}">Delete</a>
+{% endblock %}

@@ -2,13 +2,12 @@ from flask import render_template
 
 from app import app
 
+isTrue = True
+
+users = ['joe', 'poo', 'foo', 'jack']
+
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('index.html', users=users, isTrue=isTrue)
 
-
-@app.route('/<string:path_var>')
-def name(path_var):
-    print(path_var)
-    return render_template('home.html', name=path_var)
