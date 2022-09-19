@@ -1,13 +1,13 @@
-from flask import render_template
+from flask import redirect, url_for
 
 from app import app
-
-isTrue = True
-
-users = ['joe', 'poo', 'foo', 'jack']
+from app.owner.models import OwnerModel
 
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    if OwnerModel.query.count():
+        return redirect(url_for('owner.show_all'))
+    return redirect(url_for('owner.register_owner'))
+
 

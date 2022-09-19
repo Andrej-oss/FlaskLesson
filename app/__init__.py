@@ -10,6 +10,10 @@ app.config.from_object(DevConfig)
 
 db = SQLAlchemy(app)
 
-from app.user import views
+from app import view
+from app.owner import models
+from app.owner.views import owner
+
+app.register_blueprint(owner)
 
 db.create_all()
