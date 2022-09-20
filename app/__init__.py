@@ -10,6 +10,7 @@ app.config.from_object(DevConfig)
 
 db = SQLAlchemy(app)
 
-from app.user import views
+from . import admin
+from . import view
 
 db.create_all()
